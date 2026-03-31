@@ -126,24 +126,24 @@ export default function App() {
 
       {/* Content Layer */}
       <div className="relative z-20 flex flex-col min-h-screen">
-        <header className="p-8 flex justify-between items-center">
+        <header className="p-4 md:p-8 flex justify-between items-center">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-2 md:gap-3"
           >
-            <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
-              <Leaf className="w-6 h-6 text-green-300" />
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30">
+              <Leaf className="w-5 h-5 md:w-6 md:h-6 text-green-300" />
             </div>
-            <h1 className="text-2xl font-serif italic tracking-wide drop-shadow-md">BioGarden Study</h1>
+            <h1 className="text-lg md:text-2xl font-serif italic tracking-wide drop-shadow-md">BioGarden Study</h1>
           </motion.div>
 
           {view === 'presentation' && (
             <button 
               onClick={resetPresentation}
-              className="px-6 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white/20 transition-all flex items-center gap-2"
+              className="px-4 py-1.5 md:px-6 md:py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[10px] md:text-sm font-bold uppercase tracking-widest hover:bg-white/20 transition-all flex items-center gap-2"
             >
-              <RotateCcw className="w-4 h-4" /> Resetar
+              <RotateCcw className="w-3 h-3 md:w-4 md:h-4" /> Resetar
             </button>
           )}
         </header>
@@ -156,45 +156,45 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.1 }}
-                className="max-w-4xl w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-[40px] p-8 md:p-16 shadow-2xl text-center space-y-10"
+                className="max-w-4xl w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-[30px] md:rounded-[40px] p-6 md:p-16 shadow-2xl text-center space-y-8 md:space-y-10"
               >
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-2 px-4 py-1 bg-green-500/30 rounded-full text-xs font-bold uppercase tracking-widest border border-green-400/30"
+                    className="inline-flex items-center gap-2 px-3 py-1 bg-green-500/30 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest border border-green-400/30"
                   >
                     <Sun className="w-3 h-3" /> Estudo Imersivo
                   </motion.div>
-                  <h2 className="text-5xl md:text-8xl font-serif italic leading-tight drop-shadow-xl">
+                  <h2 className="text-4xl md:text-8xl font-serif italic leading-tight drop-shadow-xl">
                     Microbiologia <br />
                     <span className="text-pink-200">& Parasitologia</span>
                   </h2>
-                  <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-sm md:text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
                     Explore o mundo invisível em meio à beleza da natureza. 
                     Uma experiência de aprendizado serena e inspiradora.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-left">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 text-left">
                   {TOPICS.map((topic, idx) => (
-                    <div key={idx} className="p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
-                      <div className="text-pink-200 mb-2">{topic.icon}</div>
-                      <h3 className="text-xs font-bold uppercase tracking-wider opacity-70">{topic.title}</h3>
+                    <div key={idx} className="p-3 md:p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors flex items-center gap-3 md:block">
+                      <div className="text-pink-200 md:mb-2 shrink-0">{topic.icon}</div>
+                      <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-wider opacity-70">{topic.title}</h3>
                     </div>
                   ))}
                 </div>
 
-                <div className="pt-6">
+                <div className="pt-4 md:pt-6">
                   <button 
                     onClick={generateContent}
                     disabled={loading}
-                    className="group relative inline-flex items-center gap-4 bg-white text-green-900 px-10 py-5 rounded-full font-bold text-lg shadow-xl hover:shadow-green-500/20 transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
+                    className="group relative inline-flex items-center gap-3 md:gap-4 bg-white text-green-900 px-8 py-4 md:px-10 md:py-5 rounded-full font-bold text-base md:text-lg shadow-xl hover:shadow-green-500/20 transition-all hover:scale-105 active:scale-95 disabled:opacity-50"
                   >
                     {loading ? (
-                      <Loader2 className="w-6 h-6 animate-spin" />
+                      <Loader2 className="w-5 h-5 md:w-6 md:h-6 animate-spin" />
                     ) : (
-                      <Play className="w-6 h-6 fill-current" />
+                      <Play className="w-5 h-5 md:w-6 md:h-6 fill-current" />
                     )}
                     FLORESCER ESTUDO
                   </button>
@@ -204,7 +204,7 @@ export default function App() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 0.4 }}
                     transition={{ delay: 1 }}
-                    className="mt-8 text-[10px] uppercase tracking-[0.3em] font-bold"
+                    className="mt-6 md:mt-8 text-[8px] md:text-[10px] uppercase tracking-[0.3em] font-bold"
                   >
                     Criador Jefferson Augusto
                   </motion.div>
@@ -216,11 +216,11 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="max-w-5xl w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[40px] p-8 md:p-16 shadow-2xl min-h-[60vh] flex flex-col relative overflow-hidden"
+                className="max-w-5xl w-full bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[30px] md:rounded-[40px] p-6 md:p-16 shadow-2xl min-h-[60vh] md:min-h-[70vh] flex flex-col relative overflow-hidden"
               >
                 {/* Decorative Corner Flowers */}
-                <Flower2 className="absolute -top-6 -right-6 w-24 h-24 text-pink-200/20 rotate-12" />
-                <Leaf className="absolute -bottom-6 -left-6 w-24 h-24 text-green-200/20 -rotate-12" />
+                <Flower2 className="absolute -top-6 -right-6 w-16 h-16 md:w-24 md:h-24 text-pink-200/20 rotate-12" />
+                <Leaf className="absolute -bottom-6 -left-6 w-16 h-16 md:w-24 md:h-24 text-green-200/20 -rotate-12" />
 
                 <div className="flex-grow flex flex-col justify-center">
                   <AnimatePresence mode="wait">
@@ -229,27 +229,27 @@ export default function App() {
                       initial={{ opacity: 0, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -30 }}
-                      className="space-y-10"
+                      className="space-y-6 md:space-y-10"
                     >
-                      <div className="flex items-center gap-6">
-                        <div className="w-16 h-16 bg-white/20 rounded-3xl flex items-center justify-center text-pink-200 shadow-inner">
+                      <div className="flex items-center gap-4 md:gap-6">
+                        <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-2xl md:rounded-3xl flex items-center justify-center text-pink-200 shadow-inner shrink-0">
                           {slides[currentSlide].icon}
                         </div>
-                        <h3 className="text-4xl md:text-6xl font-serif italic drop-shadow-lg">
+                        <h3 className="text-2xl md:text-6xl font-serif italic drop-shadow-lg leading-tight">
                           {slides[currentSlide].title}
                         </h3>
                       </div>
                       
-                      <ul className="space-y-6">
+                      <ul className="space-y-4 md:space-y-6">
                         {slides[currentSlide].content.map((point, i) => (
                           <motion.li 
                             key={i}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: i * 0.1 + 0.2 }}
-                            className="flex items-start gap-5 text-xl md:text-3xl text-white/90 leading-snug"
+                            className="flex items-start gap-3 md:gap-5 text-base md:text-3xl text-white/90 leading-snug"
                           >
-                            <Wind className="mt-2 w-6 h-6 text-green-300 shrink-0" />
+                            <Wind className="mt-1 md:mt-2 w-4 h-4 md:w-6 md:h-6 text-green-300 shrink-0" />
                             {point}
                           </motion.li>
                         ))}
@@ -258,24 +258,24 @@ export default function App() {
                   </AnimatePresence>
                 </div>
 
-                <div className="flex justify-between items-center pt-12 mt-8 border-t border-white/10">
-                  <div className="px-4 py-2 bg-black/20 rounded-full text-sm font-mono tracking-widest">
+                <div className="flex justify-between items-center pt-8 md:pt-12 mt-6 md:mt-8 border-t border-white/10">
+                  <div className="px-3 py-1.5 md:px-4 md:py-2 bg-black/20 rounded-full text-[10px] md:text-sm font-mono tracking-widest">
                     {currentSlide + 1} / {slides.length}
                   </div>
-                  <div className="flex gap-4">
+                  <div className="flex gap-3 md:gap-4">
                     <button 
                       onClick={prevSlide}
                       disabled={currentSlide === 0}
-                      className="p-5 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-all disabled:opacity-10"
+                      className="p-3 md:p-5 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-all disabled:opacity-10"
                     >
-                      <ChevronLeft className="w-8 h-8" />
+                      <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
                     <button 
                       onClick={nextSlide}
                       disabled={currentSlide === slides.length - 1}
-                      className="p-5 rounded-full bg-white text-green-900 hover:bg-green-50 transition-all disabled:opacity-10 shadow-lg"
+                      className="p-3 md:p-5 rounded-full bg-white text-green-900 hover:bg-green-50 transition-all disabled:opacity-10 shadow-lg"
                     >
-                      <ChevronRight className="w-8 h-8" />
+                      <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
                     </button>
                   </div>
                 </div>
